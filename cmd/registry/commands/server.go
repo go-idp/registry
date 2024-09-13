@@ -24,7 +24,7 @@ func RegisterServer(app *cli.MultipleProgram) {
 				Usage:   "config file",
 				Aliases: []string{"c"},
 				EnvVars: []string{"CONFIG"},
-				Value:   "/etc/registry/config.yml",
+				Value:   "/etc/registry/config.yaml",
 				// Required: true,
 			},
 		},
