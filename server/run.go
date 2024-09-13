@@ -106,7 +106,7 @@ ____________________________________O/_______
 			proxyToRegistry("yum", cfg.Registries.Yum)
 			return
 
-		case is.Chrome(ctx):
+		case is.Chrome(ctx), is.Curl(ctx), is.Wget(ctx):
 			s.Info()(ctx)
 			return
 
