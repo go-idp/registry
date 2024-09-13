@@ -44,10 +44,15 @@ ____________________________________O/_______
 				panic(fmt.Sprintf("[package manager: %s] registry is not set", name))
 			}
 
+			headers := http.Header{}
+			for k, v := range registryX.Headers {
+				headers.Set(k, v)
+			}
+
 			ctx.Logger.Infof("[package manager: %s][registry: %s][user-agent] %s...", name, registryX.Server, ctx.UserAgent())
 			ctx.Logger.Infof("[package manager: %s][registry: %s] %s %s...", name, registryX.Server, ctx.Method, ctx.Path)
 			ctx.Proxy(registryX.Server, &proxy.SingleHostConfig{
-				RequestHeaders: registryX.Headers,
+				RequestHeaders: headers,
 				OnRequest: func(req *http.Request) error {
 					req.Header.Set("X-Organization", "go-idp")
 					req.Header.Set("X-Registry-Client", fmt.Sprintf("go-idp-registry/%s", registry.Version))

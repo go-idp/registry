@@ -1,7 +1,5 @@
 package server
 
-import "net/http"
-
 // Config is the configuration for the server
 type Config struct {
 	// Port is the port the server listens on
@@ -47,5 +45,5 @@ type Registry struct {
 	Server string `config:"server"`
 
 	// Headers is the headers
-	Headers http.Header `config:"headers"`
+	Headers map[string]string `config:"headers"`
 }
