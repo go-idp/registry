@@ -1,0 +1,6 @@
+registries:
+  npm:
+    server: https://registry.npmmirror.com
+  
+  docker:
+    server: https://registry.docker.com

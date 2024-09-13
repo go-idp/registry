@@ -5,6 +5,8 @@ import (
 	"github.com/go-zoox/zoox"
 )
 
+// Docker check if the client is using docker
+//
 // Example:
 //
 //	{

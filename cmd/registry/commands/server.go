@@ -6,6 +6,7 @@ import (
 	"github.com/go-zoox/config"
 )
 
+// RegisterServer register server command
 func RegisterServer(app *cli.MultipleProgram) {
 	app.Register("server", &cli.Command{
 		Name:  "server",
