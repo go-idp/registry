@@ -32,5 +32,5 @@ import (
 //	  ]
 //	}
 func Docker(ctx *zoox.Context) (ok bool) {
-	return strings.Contains(ctx.Header().Get("User-Agent"), "docker/")
+	return strings.Contains(ctx.UserAgent(), "docker/")
 }

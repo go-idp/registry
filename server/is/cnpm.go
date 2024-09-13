@@ -22,5 +22,5 @@ func Cnpm(ctx *zoox.Context) (ok bool) {
 	//	    "14987760a9f2/nTkGwZGh8l-000022"
 	//	  ]
 	//	}
-	return strings.Contains(ctx.Header().Get("User-Agent"), "npminstall/")
+	return strings.Contains(ctx.UserAgent(), "npminstall/")
 }

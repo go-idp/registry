@@ -22,5 +22,5 @@ func Pip(ctx *zoox.Context) (ok bool) {
 	//	    "pip/21.2.4"
 	//	  ]
 	//	}
-	return strings.Contains(ctx.Header().Get("User-Agent"), "pip/")
+	return strings.Contains(ctx.UserAgent(), "pip/")
 }

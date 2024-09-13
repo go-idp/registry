@@ -22,5 +22,5 @@ func Pnpm(ctx *zoox.Context) (ok bool) {
 	//	    "14987760a9f2/nTkGwZGh8l-000025"
 	//	  ]
 	//	}
-	return strings.Contains(ctx.Header().Get("User-Agent"), "pnpm/")
+	return strings.Contains(ctx.UserAgent(), "pnpm/")
 }

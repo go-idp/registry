@@ -22,5 +22,5 @@ func Maven(ctx *zoox.Context) (ok bool) {
 	//	    "Apache-Maven/3.8.4 (Java 11.0.12; Mac OS X 11.6.2)"
 	//	  ]
 	//	}
-	return strings.Contains(ctx.Header().Get("User-Agent"), "Apache-Maven/")
+	return strings.Contains(ctx.UserAgent(), "Apache-Maven/")
 }

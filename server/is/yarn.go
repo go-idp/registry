@@ -23,5 +23,5 @@ func Yarn(ctx *zoox.Context) (ok bool) {
 	//	    "14987760a9f2/nTkGwZGh8l-000023"
 	//	  ]
 	//	}
-	return strings.Contains(ctx.Header().Get("User-Agent"), "yarn/")
+	return strings.Contains(ctx.UserAgent(), "yarn/")
 }
