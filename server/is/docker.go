@@ -42,20 +42,11 @@ import (
 //		  "Connection": [
 //		    "close"
 //		  ],
-//		  "Remoteip": [
-//		    "106.14.46.45"
-//		  ],
 //		  "Traceparent": [
 //		    "00-e6c58f2b63707ac86153ead04283d8e0-749297dfcf6b0a62-01"
 //		  ],
 //		  "User-Agent": [
 //		    "buildkit/v0.12"
-//		  ],
-//		  "X-Forwarded-For": [
-//		    "106.14.46.45, 100.120.195.160"
-//		  ],
-//		  "X-Real-Ip": [
-//		    "100.120.195.160"
 //		  ],
 //		  "X-Request-Id": [
 //		    "3b9f38c61c5f/eXYwXysyvl-000372"
