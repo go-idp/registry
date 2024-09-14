@@ -8,6 +8,7 @@ import (
 
 	"github.com/go-idp/registry"
 	"github.com/go-idp/registry/server/is"
+	"github.com/go-idp/report"
 	"github.com/go-zoox/logger"
 	"github.com/go-zoox/zoox"
 	"github.com/go-zoox/zoox/defaults"
@@ -115,20 +116,20 @@ ____________________________________O/_______
 			return
 
 		default:
-			fmt.PrintJSON("unknown client", zoox.H{
+			detail := zoox.H{
 				"method":  ctx.Method,
 				"path":    ctx.Path,
 				"headers": ctx.Request.Header,
-			})
+			}
+
+			fmt.PrintJSON("unsupported client", detail)
+
+			go report.Report("go-idp/registry", "unsupported client", detail)
 
 			ctx.JSON(http.StatusBadGateway, zoox.H{
 				"code":    400,
-				"message": "unknown client",
-				"detail": zoox.H{
-					"method":  ctx.Method,
-					"path":    ctx.Path,
-					"headers": ctx.Request.Header,
-				},
+				"message": "unsupported client",
+				"detail":  detail,
 			})
 		}
 	})

@@ -26,9 +26,5 @@ import (
 //	   "path": "/v2/idp/openjdk/manifests/v11-1"
 //	 }
 func Containerd(ctx *zoox.Context) (ok bool) {
-	if ok := strings.StartsWith(ctx.UserAgent(), "containerd/"); ok {
-		return true
-	}
-
-	return false
+	return strings.StartsWith(ctx.UserAgent(), "containerd/")
 }
