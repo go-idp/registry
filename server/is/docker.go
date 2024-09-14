@@ -31,6 +31,49 @@ import (
 //	    "14987760a9f2/nTkGwZGh8l-000018"
 //	  ]
 //	}
+//
+// // buildkit (docker buildx)
+// {                                                                              [3/2218]
+//
+//		"headers": {
+//		  "Accept": [
+//		    "application/vnd.docker.distribution.manifest.v2+json, application/vnd.docker.distribution.manifest.list.v2+json, application/vnd.oci.image.manifest.v1+json, application/vnd.oci.image.index.v1+json, */*"
+//		  ],
+//		  "Connection": [
+//		    "close"
+//		  ],
+//		  "Remoteip": [
+//		    "106.14.46.45"
+//		  ],
+//		  "Traceparent": [
+//		    "00-e6c58f2b63707ac86153ead04283d8e0-749297dfcf6b0a62-01"
+//		  ],
+//		  "User-Agent": [
+//		    "buildkit/v0.12"
+//		  ],
+//		  "X-Forwarded-For": [
+//		    "106.14.46.45, 100.120.195.160"
+//		  ],
+//		  "X-Real-Ip": [
+//		    "100.120.195.160"
+//		  ],
+//		  "X-Request-Id": [
+//		    "3b9f38c61c5f/eXYwXysyvl-000372"
+//		  ]
+//		},
+//		"method": "HEAD",
+//		"path": "/v2/whatwewant/builder-ta-node/manifests/v16-1"
+//	}
 func Docker(ctx *zoox.Context) (ok bool) {
-	return strings.Contains(ctx.UserAgent(), "docker/")
+	// docker build
+	if ok := strings.Contains(ctx.UserAgent(), "docker/"); ok {
+		return true
+	}
+
+	// docker buildx build => buildkit
+	if ok := strings.StartsWith(ctx.UserAgent(), "buildkit/"); ok {
+		return true
+	}
+
+	return false
 }
