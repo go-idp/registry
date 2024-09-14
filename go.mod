@@ -3,7 +3,7 @@ module github.com/go-idp/registry
 go 1.22.1
 
 require (
-	github.com/go-idp/report v1.0.1
+	github.com/go-idp/report v1.0.2
 	github.com/go-zoox/cli v1.4.0
 	github.com/go-zoox/config v1.3.2
 	github.com/go-zoox/core-utils v1.4.11
