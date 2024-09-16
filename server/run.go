@@ -79,6 +79,10 @@ ____________________________________O/_______
 			proxyToRegistry("npm", cfg.Registries.Npm)
 			return
 
+		case is.TypeInstaller(ctx):
+			proxyToRegistry("types-installer", cfg.Registries.Npm)
+			return
+
 		case is.Docker(ctx):
 			proxyToRegistry("docker", cfg.Registries.Docker)
 			return
