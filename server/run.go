@@ -91,6 +91,9 @@ ____________________________________O/_______
 			proxyToRegistry("containerd", cfg.Registries.Docker)
 			return
 
+		case is.Git(ctx):
+			proxyToRegistry("git", cfg.Registries.Git)
+
 		case is.Maven(ctx):
 			proxyToRegistry("maven", cfg.Registries.Maven)
 			return

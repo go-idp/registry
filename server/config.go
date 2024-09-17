@@ -17,6 +17,9 @@ type Registries struct {
 	// Docker is the docker registry
 	Docker Registry `config:"docker"`
 
+	// Git is the git registry
+	Git Registry `config:"git"`
+
 	// Maven is the maven registry
 	Maven Registry `config:"maven"`
 
