@@ -87,6 +87,9 @@ ____________________________________O/_______
 			proxyToRegistry("docker", cfg.Registries.Docker)
 			return
 
+		case is.Podman(ctx):
+			proxyToRegistry("podman (containers)", cfg.Registries.Docker)
+
 		case is.Containerd(ctx):
 			proxyToRegistry("containerd", cfg.Registries.Docker)
 			return
