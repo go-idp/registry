@@ -78,6 +78,10 @@ ____________________________________O/_______
 		case is.Undici(ctx):
 			proxyToRegistry("undici", cfg.Registries.Npm)
 
+		case is.Bun(ctx):
+			proxyToRegistry("bun", cfg.Registries.Npm)
+			return
+
 		case is.Npm(ctx):
 			proxyToRegistry("npm", cfg.Registries.Npm)
 			return
