@@ -75,6 +75,9 @@ ____________________________________O/_______
 			proxyToRegistry("cnpm", cfg.Registries.Npm)
 			return
 
+		case is.Undici(ctx):
+			proxyToRegistry("undici", cfg.Registries.Npm)
+
 		case is.Npm(ctx):
 			proxyToRegistry("npm", cfg.Registries.Npm)
 			return
