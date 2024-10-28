@@ -133,20 +133,33 @@ ____________________________________O/_______
 			return
 
 		default:
-			detail := zoox.H{
+			go report.Report("go-idp/registry", "unsupported client", map[string]any{
 				"method":  ctx.Method,
 				"path":    ctx.Path,
 				"headers": ctx.Request.Header,
+			})
+
+			headers := map[string]string{}
+			for k, v := range ctx.Request.Header {
+				if k == "X-Fowarded-For" {
+					continue
+				}
+
+				if len(v) > 0 {
+					headers[k] = v[0]
+				} else {
+					headers[k] = ""
+				}
 			}
-
-			fmt.PrintJSON("unsupported client", detail)
-
-			go report.Report("go-idp/registry", "unsupported client", detail)
 
 			ctx.JSON(http.StatusBadGateway, zoox.H{
 				"code":    400,
 				"message": "unsupported client",
-				"detail":  detail,
+				"detail": zoox.H{
+					"method":  ctx.Method,
+					"path":    ctx.Path,
+					"headers": headers,
+				},
 			})
 		}
 	})
