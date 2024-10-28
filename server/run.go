@@ -141,7 +141,7 @@ ____________________________________O/_______
 
 			headers := map[string]string{}
 			for k, v := range ctx.Request.Header {
-				if k == "X-Fowarded-For" {
+				if k == "X-Forwarded-For" {
 					continue
 				}
 
