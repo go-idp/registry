@@ -86,6 +86,10 @@ ____________________________________O/_______
 			proxyToRegistry("got", cfg.Registries.Npm)
 			return
 
+		case is.Node(ctx):
+			proxyToRegistry("node", cfg.Registries.Npm)
+			return
+
 		case is.Npm(ctx):
 			proxyToRegistry("npm", cfg.Registries.Npm)
 			return
